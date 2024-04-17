@@ -1,5 +1,8 @@
 #pragma once
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define STACK_SIZE 10000000
 #define or ||
 #define and &&

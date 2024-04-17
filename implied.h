@@ -60,5 +60,5 @@ void implied_label(VM * v, IP * code){
 }
 
 void implied_syscall(VM * v , IP * code){
-  handle_syscall(v);
+  //  handle_syscall(v);
 }
