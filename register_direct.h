@@ -8,7 +8,9 @@ void register_direct_push(VM * v , IP * code){
     printf("Stack Overflow detected\nExiting\n");
     exit(EXIT_FAILURE);
   }
-  v->stack_p++;
+  v->stack_p = v->stack_p + 1;
+
+  printf("REGISTER DIRECT PUSH CALLED \n");
 
 }
 
@@ -38,7 +40,7 @@ void register_direct_cmp(VM * v , IP * code){
 }
 
 void register_direct_pop(VM * v , IP * code){
-  if((v->stack_p - 1) > v->base_p){
+  if((v->stack_p - 1) < v->base_p){
     printf("Stack Underflow detected\nExiting\n");
     exit(EXIT_FAILURE);
   }

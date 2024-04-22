@@ -15,43 +15,15 @@
 void vm_call_stdout(VM * v){
   if(v->gpr[1] < STACK_SIZE){
     int start = v->gpr[1];
-    char * buffer = (char *) calloc(v->gpr[2],sizeof(char));
+    char * buffer = (char *)v->stack;
 
-    int len;
-    if(v->gpr[2]%4 == 0){
-      len = v->gpr[2]/4;
-    }else{
-      len = v->gpr[2]/4 + 1;
+    int len = v->gpr[2] + v->gpr[1] - 1;
+
+    for(int i = v->gpr[1] ; i < len ; i++ ){
+      printf("%c",buffer[i]);
     }
-
-    int tracker = 0 ;
-    for ( int i = start ; i < len ; i++){
-      if(tracker > v->gpr[2]){
-	break;
-      }
-      if(tracker < v->gpr[2]){
-	buffer[tracker] = v->stack[i].part[3];
-	tracker++;
-      }
-      if(tracker < v->gpr[2]){
-	buffer[tracker] = v->stack[i].part[2];
-	tracker++;
-      }
-      if(tracker < v->gpr[2]){
-	buffer[tracker] = v->stack[i].part[1];
-	tracker++;
-      }
-      if(tracker < v->gpr[2]){
-	buffer[tracker] = v->stack[i].part[0];
-	tracker++;
-      }
-      
-    }
-
-    printf("%s",buffer);
-
-    free(buffer);
-
+    printf("\n");
+    buffer = nullptr;
     
   }
 

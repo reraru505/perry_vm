@@ -56,9 +56,15 @@ void implied_clf(VM * v , IP * code){
 
 
 void implied_label(VM * v, IP * code){
-  //empty 
+
+  //printf("LABEL \n\n");
+  
 }
 
 void implied_syscall(VM * v , IP * code){
-  //  handle_syscall(v);
+
+  if(v->gpr[0] == 0){
+    vm_call_stdout(v);
+  }
+  
 }

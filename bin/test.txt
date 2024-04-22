@@ -1,0 +1,10 @@
+.data
+	db sailendra hello world
+	db chewang hello smit
+.text
+_start
+	mov %a 0
+	mov %b sailendra
+	mov %c 11
+	syscall
+	hlt

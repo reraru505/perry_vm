@@ -6,6 +6,7 @@
 #define STACK_SIZE 10000000
 #define or ||
 #define and &&
+#define nullptr ( (void *)0 )
 
 typedef unsigned char  u8;
 typedef unsigned int  u32;

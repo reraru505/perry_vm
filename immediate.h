@@ -3,7 +3,7 @@
 void immediate_push(VM * v, IP * code){
 
   v->stack[v->stack_p].data = v->ip.argx;
-  v->stack_p++;
+  v->stack_p = v->stack_p + 1 ;
 
 }
 

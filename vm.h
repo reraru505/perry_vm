@@ -21,9 +21,9 @@
 
 void init_vm(VM * v , IP * code){
   v->stack = (s32 *) calloc(STACK_SIZE , sizeof(s32));
-  v->pc = code[0].argy;
-  v->stack_p = code[0].code;
-  v->base_p = code[0].code;
+  v->pc = code[0].argy + code[0].code + 1;
+  v->stack_p = code[0].code * 5;
+  v->base_p = code[0].code * 5;
   
 }
 
@@ -35,7 +35,7 @@ void prefetch_data_segment(VM * v , IP * code){
 
 
   //this gives me no hope for C
-  // why the FUCK is this even possible
+  //why the FUCK is this even possible
   
   for(u32 i = 0 ; i < ((sizeof(IP)* code[0].code)/sizeof(char)); i++){
 
@@ -43,10 +43,14 @@ void prefetch_data_segment(VM * v , IP * code){
     
   }
   
-  printf("\n%s\n",c);
+  //printf("\n%s\n",c);
+
+  c = nullptr;
+  d = nullptr;
   
 }
 
+  
 
 void fetch(VM * v , IP * code){
 
